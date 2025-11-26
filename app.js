@@ -109,6 +109,27 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  // Home page hero image slider (5-second interval)
+  const heroImage = document.querySelector(".hero-image");
+  if (heroImage) {
+    const heroSlides = [
+      "home page_images/IMG-20251124-WA0078 (1).jpg",
+      "home page_images/IMG-20251124-WA0098 (1).jpg",
+      "home page_images/IMG-20251124-WA0100 (1).jpg",
+      "home page_images/Photo from Humpty Dumpty 🥚.jpg",
+    ];
+
+    let currentSlide = 0;
+
+    // Start with the first slide image
+    heroImage.src = heroSlides[currentSlide];
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % heroSlides.length;
+      heroImage.src = heroSlides[currentSlide];
+    }, 5000); // 5 seconds
+  }
 });
 
 
