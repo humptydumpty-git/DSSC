@@ -78,6 +78,37 @@ document.addEventListener("DOMContentLoaded", () => {
       contactForm.reset();
     });
   }
+
+  // Newsletter subscription (dummy)
+  const newsletterForms = document.querySelectorAll(".newsletter-form");
+
+  if (newsletterForms.length > 0) {
+    newsletterForms.forEach((form) => {
+      const statusEl = form.querySelector(".newsletter-status");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const emailInput = form.newsletterEmail || form.querySelector("input[type='email']");
+        const email = emailInput ? emailInput.value.trim() : "";
+
+        if (!email) {
+          if (statusEl) {
+            statusEl.textContent = "Please enter a valid email address.";
+            statusEl.classList.remove("success");
+            statusEl.classList.add("error");
+          }
+          return;
+        }
+
+        if (statusEl) {
+          statusEl.textContent = "Thank you for subscribing! (This is a demo – no email will be sent now.)";
+          statusEl.classList.remove("error");
+          statusEl.classList.add("success");
+        }
+
+        form.reset();
+      });
+    });
+  }
 });
 
 

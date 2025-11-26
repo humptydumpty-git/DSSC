@@ -59,8 +59,8 @@ ul {
 }
 
 .logo {
-  width: 52px;
-  height: 52px;
+  width: 70px;
+  height: 70px;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #fff;
@@ -75,11 +75,11 @@ ul {
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .brand-tagline {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   opacity: 0.85;
 }
 
@@ -127,7 +127,7 @@ ul {
 
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.6fr);
   gap: 2.5rem;
   align-items: center;
 }
@@ -148,6 +148,179 @@ ul {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1.25rem;
+}
+
+.hero-contact {
+  margin-top: 1rem;
+  font-size: 0.92rem;
+  opacity: 0.9;
+}
+
+.hero-image-wrapper {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(248, 250, 252, 0.35);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Results (Academics page) */
+.results-wrapper {
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  background-color: #fff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.results-table th,
+.results-table td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.results-table th {
+  background-color: #0b3b7a;
+  color: #f7fafc;
+  text-align: left;
+  font-weight: 600;
+}
+
+.results-table tr:nth-child(even) td {
+  background-color: #f7fafc;
+}
+
+.results-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Teacher Directory */
+.teacher-grid {
+  margin-top: 1.25rem;
+}
+
+.teacher-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.teacher-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #0b3b7a;
+  color: #f7fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.teacher-role {
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+/* Newsletter */
+.newsletter-section {
+  background-color: #edf2f7;
+}
+
+.newsletter-form {
+  margin-top: 0.75rem;
+}
+
+.newsletter-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.newsletter-fields input[type="email"] {
+  flex: 1 1 220px;
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid #cbd5e0;
+  font-size: 0.9rem;
+}
+
+.newsletter-fields input[type="email"]:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 1px rgba(49, 130, 206, 0.4);
+}
+
+.newsletter-status {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+  color: #2d3748;
+}
+
+.newsletter-status.error {
+  color: #c53030;
+}
+
+.newsletter-status.success {
+  color: #2f855a;
+}
+
+/* Map */
+.map-wrapper {
+  margin-top: 1rem;
+  border-radius: 0.85rem;
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.25);
+  border: 1px solid #e2e8f0;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.2rem;
+  z-index: 40;
+}
+
+.whatsapp-float a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background-color: #25d366;
+  color: #f7fafc;
+  font-weight: 700;
+  font-size: 1.3rem;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.4);
+}
+
+.whatsapp-float a:hover {
+  filter: brightness(1.05);
 }
 
 .hero-highlight {
