@@ -818,4 +818,12 @@ ul {
   }
 }
 
+.nav-toggle:focus,
+.btn:focus,
+.lightbox-close:focus,
+.whatsapp-float a:focus {
+  outline: 3px solid rgba(246,224,94,0.9);
+  outline-offset: 2px;
+}
+
 

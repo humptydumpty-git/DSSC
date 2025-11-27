@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Danso Stars School Complex — Shaping confident, disciplined and excellent learners at Nyanyano, Memenda." />
   <title>Gallery | Danso Stars School Complex</title>
   <link rel="stylesheet" href="profile.css" />
 </head>
@@ -10,15 +11,16 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand">
-        <img src="dssc_logo/Photo from Humpty Dumpty 🥚.jpg" alt="Danso Stars School Complex Logo" class="logo" />
+        <!-- change the logo filename to a safe ascii-only name, e.g. dssc-logo.jpg -->
+        <img src="dssc_logo/dssc-logo.jpg" alt="Danso Stars School Complex Logo" class="logo" loading="lazy" />
         <div class="brand-text">
           <span class="brand-name">Danso Stars School Complex</span>
           <span class="brand-tagline">Raising Stars for the Future</span>
         </div>
       </a>
       <nav class="main-nav">
-        <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-        <ul class="nav-links">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="nav-links" aria-expanded="false">&#9776;</button>
+        <ul class="nav-links" id="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="academics.html">Academics</a></li>
@@ -41,41 +43,40 @@
 
     <section class="section container">
       <div class="gallery-grid" id="gallery-grid">
-        <!-- Thumbnails powered by app.js; images located in gallery/ folder -->
-        <img src="gallery/IMG-20251124-WA0070.jpg" alt="School activity 1" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0071.jpg" alt="School activity 2" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0072.jpg" alt="School activity 3" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0073.jpg" alt="School activity 4" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0074.jpg" alt="School activity 5" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0075.jpg" alt="School activity 6" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0076.jpg" alt="School activity 7" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0077.jpg" alt="School activity 8" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0078.jpg" alt="School activity 9" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0079.jpg" alt="School activity 10" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0081.jpg" alt="School activity 11" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0082.jpg" alt="School activity 12" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0083.jpg" alt="School activity 13" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0086.jpg" alt="School activity 14" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0087.jpg" alt="School activity 15" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0089.jpg" alt="School activity 16" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0090.jpg" alt="School activity 17" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0091.jpg" alt="School activity 18" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0092.jpg" alt="School activity 19" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0093.jpg" alt="School activity 20" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0094.jpg" alt="School activity 21" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0095.jpg" alt="School activity 22" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0096.jpg" alt="School activity 23" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0097.jpg" alt="School activity 24" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0098.jpg" alt="School activity 25" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0099.jpg" alt="School activity 26" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0100.jpg" alt="School activity 27" class="gallery-item" />
-        <img src="gallery/IMG-20251124-WA0101.jpg" alt="School activity 28" class="gallery-item" />
+        <img src="gallery/IMG-20251124-WA0070.jpg" alt="School activity 1" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0071.jpg" alt="School activity 2" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0072.jpg" alt="School activity 3" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0073.jpg" alt="School activity 4" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0074.jpg" alt="School activity 5" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0075.jpg" alt="School activity 6" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0076.jpg" alt="School activity 7" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0077.jpg" alt="School activity 8" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0078.jpg" alt="School activity 9" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0079.jpg" alt="School activity 10" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0081.jpg" alt="School activity 11" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0082.jpg" alt="School activity 12" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0083.jpg" alt="School activity 13" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0086.jpg" alt="School activity 14" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0087.jpg" alt="School activity 15" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0089.jpg" alt="School activity 16" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0090.jpg" alt="School activity 17" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0091.jpg" alt="School activity 18" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0092.jpg" alt="School activity 19" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0093.jpg" alt="School activity 20" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0094.jpg" alt="School activity 21" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0095.jpg" alt="School activity 22" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0096.jpg" alt="School activity 23" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0097.jpg" alt="School activity 24" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0098.jpg" alt="School activity 25" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0099.jpg" alt="School activity 26" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0100.jpg" alt="School activity 27" class="gallery-item" loading="lazy" decoding="async" />
+        <img src="gallery/IMG-20251124-WA0101.jpg" alt="School activity 28" class="gallery-item" loading="lazy" decoding="async" />
       </div>
     </section>
 
-    <div class="lightbox" id="lightbox">
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
       <div class="lightbox-content">
-        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
         <img src="" alt="Expanded view" id="lightbox-image" />
       </div>
     </div>
@@ -112,7 +113,7 @@
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="app.js" defer></script>
 
   <div class="whatsapp-float">
     <a href="https://wa.me/233541190370" target="_blank" rel="noopener noreferrer" aria-label="Chat with Danso Stars School Complex on WhatsApp">

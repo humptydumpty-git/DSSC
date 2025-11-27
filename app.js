@@ -4,8 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelector(".nav-links");
 
   if (navToggle && navLinks) {
+    if (!navLinks.id) navLinks.id = "nav-links";
+    navToggle.setAttribute("aria-controls", navLinks.id);
+    navToggle.setAttribute("aria-expanded", String(navLinks.classList.contains("open")));
+    navLinks.setAttribute("aria-hidden", String(!navLinks.classList.contains("open")));
+
     navToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
+      const open = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(open));
+      navLinks.setAttribute("aria-hidden", String(!open));
     });
   }
 
@@ -22,25 +29,50 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxClose = document.getElementById("lightbox-close");
 
   if (lightbox && lightboxImage && lightboxClose && galleryItems.length > 0) {
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightbox.setAttribute("aria-modal", "true");
+
     galleryItems.forEach((img) => {
+      img.setAttribute("loading", "lazy");
+      img.setAttribute("decoding", "async");
       img.addEventListener("click", () => {
         lightboxImage.src = img.src;
         lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+        lightboxClose.focus();
       });
     });
 
     lightboxClose.addEventListener("click", () => {
       lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
     });
 
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) {
         lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
       }
     });
   }
 
-  // Contact form basic validation + mailto
+  // Keyboard accessibility: close lightbox or nav on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (lightbox && lightbox.classList.contains("open")) {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+      }
+      if (navLinks && navLinks.classList.contains("open")) {
+        navLinks.classList.remove("open");
+        navToggle && navToggle.setAttribute("aria-expanded", "false");
+        navLinks.setAttribute("aria-hidden", "true");
+      }
+    }
+  });
+
+  // Contact form validation + mailto (use FormData)
   const contactForm = document.getElementById("contact-form");
   const formStatus = document.getElementById("form-status");
 
@@ -48,10 +80,11 @@ document.addEventListener("DOMContentLoaded", () => {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      const name = contactForm.name.value.trim();
-      const phone = contactForm.phone.value.trim();
-      const email = contactForm.email.value.trim();
-      const message = contactForm.message.value.trim();
+      const fd = new FormData(contactForm);
+      const name = String(fd.get("name") || "").trim();
+      const phone = String(fd.get("phone") || "").trim();
+      const email = String(fd.get("email") || "").trim();
+      const message = String(fd.get("message") || "").trim();
 
       if (!name || !phone || !email || !message) {
         if (formStatus) {
@@ -79,18 +112,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Newsletter subscription (dummy)
+  // Newsletter - use FormData and basic email verification
   const newsletterForms = document.querySelectorAll(".newsletter-form");
-
   if (newsletterForms.length > 0) {
     newsletterForms.forEach((form) => {
       const statusEl = form.querySelector(".newsletter-status");
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-        const emailInput = form.newsletterEmail || form.querySelector("input[type='email']");
-        const email = emailInput ? emailInput.value.trim() : "";
-
-        if (!email) {
+        const email = String(new FormData(form).get("newsletterEmail") || "").trim();
+        if (!/^\S+@\S+\.\S+$/.test(email)) {
           if (statusEl) {
             statusEl.textContent = "Please enter a valid email address.";
             statusEl.classList.remove("success");
