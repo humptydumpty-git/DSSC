@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navToggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
+  let lastFocusedBeforeNavOpen = null;
 
   if (navToggle && navLinks) {
     if (!navLinks.id) navLinks.id = "nav-links";
@@ -10,9 +11,22 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinks.setAttribute("aria-hidden", String(!navLinks.classList.contains("open")));
 
     navToggle.addEventListener("click", () => {
-      const open = navLinks.classList.toggle("open");
+      const wasOpen = navLinks.classList.contains("open");
+      const open = !wasOpen;
+
+      if (open) {
+        // Remember where focus was before opening the menu
+        lastFocusedBeforeNavOpen = document.activeElement;
+      }
+
+      navLinks.classList.toggle("open", open);
       navToggle.setAttribute("aria-expanded", String(open));
       navLinks.setAttribute("aria-hidden", String(!open));
+
+      // When closing via the toggle button, return focus to the toggle
+      if (!open) {
+        navToggle.focus();
+      }
     });
   }
 
@@ -27,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightbox = document.getElementById("lightbox");
   const lightboxImage = document.getElementById("lightbox-image");
   const lightboxClose = document.getElementById("lightbox-close");
+  let lastFocusedBeforeLightbox = null;
 
   if (lightbox && lightboxImage && lightboxClose && galleryItems.length > 0) {
     lightbox.setAttribute("role", "dialog");
@@ -37,6 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
       img.setAttribute("loading", "lazy");
       img.setAttribute("decoding", "async");
       img.addEventListener("click", () => {
+        // Remember the element that opened the lightbox
+        lastFocusedBeforeLightbox = document.activeElement;
         lightboxImage.src = img.src;
         lightbox.classList.add("open");
         lightbox.setAttribute("aria-hidden", "false");
@@ -47,12 +64,21 @@ document.addEventListener("DOMContentLoaded", () => {
     lightboxClose.addEventListener("click", () => {
       lightbox.classList.remove("open");
       lightbox.setAttribute("aria-hidden", "true");
+
+      // Restore focus to the element that opened the lightbox
+      if (lastFocusedBeforeLightbox && typeof lastFocusedBeforeLightbox.focus === "function") {
+        lastFocusedBeforeLightbox.focus();
+      }
     });
 
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) {
         lightbox.classList.remove("open");
         lightbox.setAttribute("aria-hidden", "true");
+
+        if (lastFocusedBeforeLightbox && typeof lastFocusedBeforeLightbox.focus === "function") {
+          lastFocusedBeforeLightbox.focus();
+        }
       }
     });
   }
@@ -63,11 +89,20 @@ document.addEventListener("DOMContentLoaded", () => {
       if (lightbox && lightbox.classList.contains("open")) {
         lightbox.classList.remove("open");
         lightbox.setAttribute("aria-hidden", "true");
+
+        if (lastFocusedBeforeLightbox && typeof lastFocusedBeforeLightbox.focus === "function") {
+          lastFocusedBeforeLightbox.focus();
+        }
       }
       if (navLinks && navLinks.classList.contains("open")) {
         navLinks.classList.remove("open");
         navToggle && navToggle.setAttribute("aria-expanded", "false");
         navLinks.setAttribute("aria-hidden", "true");
+
+        // When closing nav via Escape, return focus to the toggle button
+        if (navToggle && typeof navToggle.focus === "function") {
+          navToggle.focus();
+        }
       }
     }
   });
