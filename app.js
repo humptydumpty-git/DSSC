@@ -144,10 +144,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroImage = document.querySelector(".hero-image");
   if (heroImage) {
     const heroSlides = [
-      "home page_images/IMG-20251124-WA0078 (1).jpg",
-      "home page_images/IMG-20251124-WA0098 (1).jpg",
-      "home page_images/IMG-20251124-WA0100 (1).jpg",
-      "home page_images/Photo from Humpty Dumpty 🥚.jpg",
+      "home-page-images/hero-1.jpg",
+      "home-page-images/hero-2.jpg",
+      "home-page-images/hero-3.jpg",
+      "home-page-images/hero-4.jpg",
     ];
 
     let currentSlide = 0;
